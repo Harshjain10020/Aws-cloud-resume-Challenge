@@ -1,0 +1,504 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Harsh Jain - Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: monospace, sans-serif;
+				line-height: 1.6;
+				color: #333;
+				background: linear-gradient(135deg, #040508 0%, #532383 100%);
+				min-height: 100vh;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 20px;
+			}
+
+			.header {
+				text-align: center;
+				color: white;
+				padding: 60px 0;
+				margin-bottom: 40px;
+			}
+
+			.header h1 {
+				font-size: 3.5em;
+				margin-bottom: 10px;
+				font-weight: 700;
+				text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+			}
+
+			.header .subtitle {
+				font-size: 1.4em;
+				margin-bottom: 20px;
+				opacity: 0.9;
+			}
+
+			.contact-info {
+				display: flex;
+				justify-content: center;
+				gap: 30px;
+				flex-wrap: wrap;
+				margin-top: 20px;
+			}
+
+			.contact-info a {
+				color: white;
+				text-decoration: none;
+				padding: 10px 20px;
+				background: rgba(255,255,255,0.2);
+				border-radius: 25px;
+				backdrop-filter: blur(10px);
+				transition: all 0.3s ease;
+			}
+
+			.contact-info a:hover {
+				background: rgba(255,255,255,0.3);
+				transform: translateY(-2px);
+			}
+
+			.section {
+				background: white;
+				margin: 30px 0;
+				padding: 40px;
+				border-radius: 15px;
+				box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+				backdrop-filter: blur(10px);
+			}
+
+			.section h2 {
+				color: #667eea;
+				font-size: 2.2em;
+				margin-bottom: 30px;
+				text-align: center;
+				position: relative;
+			}
+
+			.section h2:after {
+				content: '';
+				position: absolute;
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 60px;
+				height: 3px;
+				background: linear-gradient(45deg, #667eea, #764ba2);
+				border-radius: 2px;
+			}
+
+			.projects-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+				gap: 30px;
+				margin-top: 30px;
+			}
+
+			.project-card {
+				background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+				padding: 30px;
+				border-radius: 12px;
+				transition: all 0.3s ease;
+				border-left: 4px solid #667eea;
+			}
+
+			.project-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+			}
+
+			.project-card h3 {
+				color: #333;
+				font-size: 1.4em;
+				margin-bottom: 15px;
+			}
+
+			.project-tech {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				margin: 15px 0;
+			}
+
+			.tech-tag {
+				background: #667eea;
+				color: white;
+				padding: 4px 12px;
+				border-radius: 15px;
+				font-size: 0.85em;
+				font-weight: 500;
+			}
+
+			.project-highlights {
+				list-style: none;
+				margin-top: 15px;
+			}
+
+			.project-highlights li {
+				padding: 8px 0;
+				padding-left: 20px;
+				position: relative;
+				font-size: 0.95em;
+				line-height: 1.5;
+			}
+
+			.project-highlights li:before {
+				content: '✓';
+				position: absolute;
+				left: 0;
+				color: #667eea;
+				font-weight: bold;
+			}
+
+			.skills-container {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 30px;
+			}
+
+			.skill-category {
+				background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+				padding: 25px;
+				border-radius: 12px;
+				text-align: center;
+			}
+
+			.skill-category h3 {
+				color: #333;
+				margin-bottom: 15px;
+				font-size: 1.3em;
+			}
+
+			.skill-tags {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				justify-content: center;
+			}
+
+			.skill-tag {
+				background: rgba(255,255,255,0.8);
+				padding: 6px 14px;
+				border-radius: 20px;
+				font-size: 0.9em;
+				color: #333;
+				font-weight: 500;
+			}
+
+			.experience-item {
+				background: linear-gradient(135deg, #e3ffe7 0%, #d9e7ff 100%);
+				padding: 25px;
+				border-radius: 12px;
+				margin-bottom: 20px;
+				border-left: 4px solid #764ba2;
+			}
+
+			.experience-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 15px;
+				flex-wrap: wrap;
+			}
+
+			.experience-title {
+				font-size: 1.3em;
+				color: #333;
+				font-weight: 600;
+			}
+
+			.experience-duration {
+				color: #666;
+				font-style: italic;
+			}
+
+			.achievements {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 20px;
+			}
+
+			.achievement {
+				background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+				color: white;
+				padding: 20px;
+				border-radius: 10px;
+				text-align: center;
+				font-weight: 500;
+			}
+
+			.education {
+				background: linear-gradient(135deg, #667eea 0%, #03033a 100%);
+				color: white;
+				padding: 30px;
+				border-radius: 12px;
+				text-align: center;
+			}
+
+			.education h3 {
+				font-size: 1.5em;
+				margin-bottom: 10px;
+			}
+
+			.education p {
+				font-size: 1.1em;
+				opacity: 0.9;
+			}
+
+			@media (max-width: 768px) {
+				.header h1 {
+					font-size: 2.5em;
+				}
+				
+				.contact-info {
+					gap: 15px;
+				}
+				
+				.section {
+					padding: 25px;
+					margin: 20px 0;
+				}
+				
+				.projects-grid {
+					grid-template-columns: 1fr;
+				}
+				
+				.experience-header {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Header -->
+			<div class="header">
+				<h1>Harsh Jain</h1>
+				<p class="subtitle">Computer Science Engineering Student & Full-Stack Developer</p>
+				<p>Passionate about Blockchain, Web Development & Cloud Computing</p>
+				<div class="contact-info">
+					<a href="tel:+919423244919">📞 +91 9423244919</a>
+					<a href="mailto:jainharsh2929@gmail.com">✉️ Email</a>
+					<a href="https://linkedin.com/in/harsh-m-jain" target="_blank">💼 LinkedIn</a>
+					<a href="https://github.com/Harshjain10020" target="_blank">🐙 GitHub</a>
+					<a href="https://leetcode.com/u/Harshjain10020/" target="_blank">🧑‍💻 LeetCode</a>
+					<a href="https://medium.com/@jainharsh2929" target="_blank">🎆 Medium</a>
+					<a href="https://x.com/yakuza_anom" 
+					target="_blank">🌌 X.com</a>
+				</div>
+			</div>
+
+			<!-- Education -->
+			<div class="section">
+				<div class="education">
+					<h3>VIT Bhopal University</h3>
+					<p>B. Tech in Computer Science and Engineering</p>
+					<p><strong>CGPA: 8.63/10</strong> | Nov 2022 – Present</p>
+				</div>
+			</div>
+
+			<!-- Featured Projects -->
+			<div class="section">
+				<h2>Featured Projects</h2>
+				<div class="projects-grid">
+					<div class="project-card">
+						<h3>P2P Crowd-Sourced Investigation Platform 🏆</h3>
+						<div class="project-tech">
+							<span class="tech-tag">Hyperswarm</span>
+							<span class="tech-tag">JavaScript</span>
+							<span class="tech-tag">P2P Network</span>
+						</div>
+						<ul class="project-highlights">
+							<li>Developed decentralized journalism platform with 100% censorship resistance</li>
+							<li>Enabled 500+ secure evidence uploads with P2P file sharing</li>
+							<li>Reduced data tampering risks by 90%</li>
+							<li><strong>Top 8 Finalist - PEARS Global Hackathon 2025</strong></li>
+						</ul>
+					</div>
+
+					<div class="project-card">
+						<h3>Blockchain Ledger in Java</h3>
+						<div class="project-tech">
+							<span class="tech-tag">Java</span>
+							<span class="tech-tag">SHA-256</span>
+							<span class="tech-tag">ECDSA</span>
+							<span class="tech-tag">Blockchain</span>
+						</div>
+						<ul class="project-highlights">
+							<li>Designed blockchain prototype with immutable transactions</li>
+							<li>Implemented cryptographic digital signatures for authenticity</li>
+							<li>Built proof-of-work mechanism for block validation</li>
+							<li>Integrated P2P networking for decentralized validation</li>
+						</ul>
+					</div>
+
+					<div class="project-card">
+						<h3>Xperia - Certificate Validation System</h3>
+						<div class="project-tech">
+							<span class="tech-tag">Solidity</span>
+							<span class="tech-tag">Truffle</span>
+							<span class="tech-tag">IPFS</span>
+							<span class="tech-tag">Python</span>
+						</div>
+						<ul class="project-highlights">
+							<li>Created blockchain-based certificate validation system</li>
+							<li>Used Ganache for local blockchain network</li>
+							<li>Implemented decentralized storage with Pinata IPFS</li>
+							<li>Shortlisted for Project Expo at VIT Bhopal</li>
+						</ul>
+					</div>
+
+					<div class="project-card">
+						<h3>StudyKraft - Academic Platform</h3>
+						<div class="project-tech">
+							<span class="tech-tag">HTML</span>
+							<span class="tech-tag">CSS</span>
+							<span class="tech-tag">JavaScript</span>
+							<span class="tech-tag">Bootstrap</span>
+						</div>
+						<ul class="project-highlights">
+							<li>Developed all-in-one platform used by 500+ students</li>
+							<li>Integrated study planners, CGPA calculators, question papers</li>
+							<li>Built responsive UI supporting 1,000+ concurrent users</li>
+							<li>Improved student productivity and time management</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Experience -->
+			<div class="section">
+				<h2>Professional Experience</h2>
+				<div class="experience-item">
+					<div class="experience-header">
+						<div class="experience-title">Subject Expert (Freelance)</div>
+						<div class="experience-duration">Apr 2023 – Mar 2024</div>
+					</div>
+					<p><strong>Course Hero, Chegg India</strong> - Remote</p>
+					<ul class="project-highlights">
+						<li>Solved 50+ technical problems on Science topics with high accuracy</li>
+						<li>Maintained 80%+ accuracy rating ensuring clear concept explanations</li>
+						<li>Specialized in complex technical problem-solving and tutoring</li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- Technical Skills -->
+			<div class="section">
+				<h2>Technical Skills</h2>
+				<div class="skills-container">
+					<div class="skill-category">
+						<h3>Programming Languages</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">Java</span>
+							<span class="skill-tag">Python</span>
+							<span class="skill-tag">JavaScript</span>
+							<span class="skill-tag">SQL</span>
+							<span class="skill-tag">HTML/CSS</span>
+							<span class="skill-tag">Solidity</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3>Frameworks & Tools</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">Bootstrap</span>
+							<span class="skill-tag">Truffle</span>
+							<span class="skill-tag">Streamlit</span>
+							<span class="skill-tag">Git</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3>Cloud Platforms</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">AWS</span>
+							<span class="skill-tag">Google Cloud</span>
+							<span class="skill-tag">Azure</span>
+						</div>
+					</div>
+					<div class="skill-category">
+						<h3>Libraries & Technologies</h3>
+						<div class="skill-tags">
+							<span class="skill-tag">pandas</span>
+							<span class="skill-tag">NumPy</span>
+							<span class="skill-tag">Matplotlib</span>
+							<span class="skill-tag">Blockchain</span>
+							<span class="skill-tag">IPFS</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Awards & Certifications -->
+			<div class="section">
+				<h2>Awards & Certifications</h2>
+				<div class="achievements">
+					<div class="achievement">🏆 Top 8 Finalist - PEARS Global Hackathon 2025</div>
+					<div class="achievement">☁️ AWS Certified Cloud Practitioner (Score: 759)</div>
+					<div class="achievement">🔒 85% in Certified AppSec & Network Security Practitioner</div>
+					<div class="achievement">🎓 Top 5% in NPTEL Cloud Computing - IIT Kharagpur</div>
+					<div class="achievement">💻 Web Development Certification - Johns Hopkins</div>
+					<div class="achievement">🏢 Industry Conclave Project Demonstration - VIT Bhopal</div>
+					<div class="achievement">👥 Co-Lead Cyber Warriors Club - Managed 500+ visitor events</div>
+					<div class="achievement">📄 Research Paper Published in International Journal</div>
+				</div>
+			</div>
+
+			<!-- Footer -->
+			<div class="section" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+				<p>Ready to collaborate on innovative projects and bring ideas to life!</p>
+				<p style="margin-top: 15px; opacity: 0.8;">© 2025 Harsh Jain. Building the future, one project at a time.</p>
+			</div>
+		</div>
+
+		<script>
+			// Add smooth scrolling and animations
+			document.addEventListener('DOMContentLoaded', function() {
+				// Animate project cards on scroll
+				const observerOptions = {
+					threshold: 0.1,
+					rootMargin: '0px 0px -50px 0px'
+				};
+
+				const observer = new IntersectionObserver(function(entries) {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.style.opacity = '1';
+							entry.target.style.transform = 'translateY(0)';
+						}
+					});
+				}, observerOptions);
+
+				// Apply animation to project cards
+				const projectCards = document.querySelectorAll('.project-card, .experience-item, .skill-category');
+				projectCards.forEach(card => {
+					card.style.opacity = '0';
+					card.style.transform = 'translateY(30px)';
+					card.style.transition = 'all 0.6s ease';
+					observer.observe(card);
+				});
+
+				// Add click effect to contact links
+				const contactLinks = document.querySelectorAll('.contact-info a');
+				contactLinks.forEach(link => {
+					link.addEventListener('click', function(e) {
+						this.style.transform = 'scale(0.95)';
+						setTimeout(() => {
+							this.style.transform = 'translateY(-2px)';
+						}, 150);
+					});
+				});
+			});
+		</script>
+	</body>
+</html>
