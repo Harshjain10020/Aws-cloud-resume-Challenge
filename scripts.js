@@ -1,49 +1,19 @@
 "use strict";
-// Navigation functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('#navbar a');
-      const sections = document.querySelectorAll('section');
+const functionUrl = "https://q6bzlws26gibi34ul2hvglib240dtltp.lambda-url.ap-south-1.on.aws/";
       
-      // Add click event to nav links
-      navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const targetId = this.getAttribute('href');
-          const targetSection = document.querySelector(targetId);
-          
-          if (targetSection) {
-            targetSection.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
-          
-          // Update active nav link
-          navLinks.forEach(l => l.classList.remove('active'));
-          this.classList.add('active');
-        });
-      });
+        async function fetchViewCount() {
+          try {
+            const response = await fetch(functionUrl);
+            const data = await response.json();
       
-      // Add scroll spy functionality
-      window.addEventListener('scroll', function() {
-        let current = '';
-        sections.forEach(section => {
-          const sectionTop = section.offsetTop;
-          const sectionHeight = section.clientHeight;
-          if (window.pageYOffset >= sectionTop - 150) {
-            current = section.getAttribute('id');
+            // Display the view count
+            document.getElementById("viewCount").innerText = data.views;
+          } catch (error) {
+            console.log(error)
+            console.error("Error fetching view count:", error);
+            document.getElementById("viewCount").innerText = "error";
           }
-        });
-        
-        navLinks.forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + current) {
-            link.classList.add('active');
-          }
-        });
-      });
+        }
       
-      // Your existing scripts.js content would go here
-      // For now, just setting visits to 0
-      document.getElementById('visits').textContent = '0';
-    });
+        // Run when the page loads
+        window.onload = fetchViewCount;
