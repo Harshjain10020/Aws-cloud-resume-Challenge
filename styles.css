@@ -237,3 +237,26 @@
             flex-wrap: wrap;
         }
     }
+    /* Ensures the counter looks like a normal nav item */
+#counter-link {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+#counter-link a {
+  background: #333;
+  color: #f5f5f5;
+  font-weight: 500;
+  border-radius: 20px;
+  padding: 6px 14px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+
+#counter-link a:hover {
+  background: #f5f5f5;
+  color: #333;
+  transform: translateY(-2px);
+}
