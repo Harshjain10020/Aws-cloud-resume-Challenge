@@ -1,5 +1,5 @@
 "use strict";
-const functionUrl = "https://q6bzlws26gibi34ul2hvglib240dtltp.lambda-url.ap-south-1.on.aws/";
+const functionUrl = "Your lambda API";
       
         async function fetchViewCount() {
           try {
