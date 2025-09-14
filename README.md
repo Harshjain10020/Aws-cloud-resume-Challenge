@@ -59,7 +59,6 @@ Refer to the repo’s architecture diagram for a visual overview.
 
 - **AWS** (S3, CloudFront, Lambda, API Gateway, DynamoDB, Certificate Manager, IAM, CloudWatch, Route 53, WAF)  
 - **GitHub & GitHub Actions**  
-- **Terraform**  
 - **HTML, CSS, JavaScript, Python** (for Lambda)  
 - **React** (future/ongoing enhancements)  
 
