@@ -27,21 +27,3 @@ This repository documents:
 
 ---
 
-## 🏗️ Architecture Diagram
-```mermaid
-graph TD
-    subgraph "Frontend Layer"
-        User[👨‍💻 User] -->|1. Requests domain| Route53[🌐 Route 53]
-        Route53 -->|2. Routes traffic| CloudFront[☁️ CloudFront]
-        CloudFront -->|3. Serves static React app| S3[📦 S3 Bucket]
-    end
-
-    subgraph "Backend Layer (Visitor Counter API)"
-        User -- API Call -->|4. GET Request| APIGateway[🔗 API Gateway]
-        APIGateway -->|5. Invoke| Lambda[λ AWS Lambda]
-        Lambda -->|6. Update & retrieve| DynamoDB[🗄️ DynamoDB]
-    end
-
-    DynamoDB --> Lambda
-    Lambda --> APIGateway
-    APIGateway -->|7. Response| User
